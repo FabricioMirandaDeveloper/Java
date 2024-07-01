@@ -18,5 +18,6 @@ public class Calificacion {
         }else {
             System.out.println("El número ingresado está fuera del rango válido");
         }
+        scanner.close();
     }
 }
