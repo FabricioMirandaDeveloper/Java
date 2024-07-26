@@ -96,7 +96,7 @@ public class ManipulandoOraciones {
                         boolean encontrada = false;
                         for (int i = 0; i < palabras.length; i++) {
                             if (palabras[i].equalsIgnoreCase(palabraBuscar)) {
-                                System.out.println("La palabra \"" + palabraBuscar + "\" fue encontrada en la posición " + (i + 1) + ".");
+                                System.out.println("La palabra " + palabraBuscar + "\" fue encontrada en la posición " + (i + 1) + ".");
                                 encontrada = true;
                                 break;
                             }
@@ -104,6 +104,16 @@ public class ManipulandoOraciones {
                         if (!encontrada) {
                             System.out.println("La palabra "+ palabraBuscar + " no fue encontrada en la oración.");
                         }
+                    }
+                }
+                case 7 -> {
+                    if(oracion.isEmpty()) {
+                        System.out.println("No hay ninguna oración creada.");
+                    }else {
+                        System.out.println("Ingresa la palabra que deseas cambiar:");
+                        String palabraVieja = sc.nextLine();
+                        String[] palabras = oracion.split("\\s+");
+                        boolean encontrada = false;
                     }
                 }
                 case 9 -> {
