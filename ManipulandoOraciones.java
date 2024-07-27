@@ -15,8 +15,8 @@ public class ManipulandoOraciones {
                 4) Mostrar palabras ordenadas alfabéticamente
                 5) Ingresar un número y devolver la palabra correspondiente
                 6) Buscar palabra dentro de la oración
-                7)
-                8)
+                7) Modificar palabra dentro de la oracion
+                8) Agregar contenido a la oración
                 9) Salir
                 """);
             int opcion = sc.nextInt();
@@ -111,9 +111,37 @@ public class ManipulandoOraciones {
                         System.out.println("No hay ninguna oración creada.");
                     }else {
                         System.out.println("Ingresa la palabra que deseas cambiar:");
-                        String palabraVieja = sc.nextLine();
+                        String palabraAntigua = sc.nextLine();
                         String[] palabras = oracion.split("\\s+");
                         boolean encontrada = false;
+                        for (int i = 0; i < palabras.length; i++) {
+                            if(palabras[i].equalsIgnoreCase(palabraAntigua)) {
+                                System.out.println("Ingresa la palabra nueva palabra");
+                                String nuevaPalabra = sc.nextLine();
+                                if(nuevaPalabra.matches("[a-zA-Z\\s]+")) {
+                                    palabras[i] = nuevaPalabra;
+                                    oracion = String.join(" ", palabras);
+                                    System.out.println("Oracion modificada: "+oracion);
+                                }else {
+                                    System.out.println("La nueva palabra contiene caracteres no válidos.");
+                                }
+                                encontrada = true;
+                                break;
+                            }
+                        }
+                        if(!encontrada) {
+                            System.out.println("La palabra que deseas cambiar no ha sido encontrada");
+                        }
+                    }
+                }
+                case 8 -> {
+                    if(oracion.isEmpty()) {
+                        System.out.println("No hay ninguna oración creada.");
+                    }else {
+                        System.out.println("Ingresa un nuevo contenido para la oracion");
+                        String contenido = sc.nextLine().trim();
+                        oracion = oracion + " " +contenido;
+                        System.out.println("La nueva oracion es: "+oracion);
                     }
                 }
                 case 9 -> {
