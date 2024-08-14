@@ -5,9 +5,9 @@ public class Calculadora {
         System.out.println("Calculadora");
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingresa un número");
-        double number1 = scanner.nextDouble();
+        int number1 = scanner.nextInt();
         System.out.println("Ingresa un otro número");
-        double number2 = scanner.nextDouble();
+        int number2 = scanner.nextInt();
         System.out.println("Selecciona la operación:");
         System.out.println("1: Suma");
         System.out.println("2: Resta");
@@ -29,12 +29,13 @@ public class Calculadora {
                 System.out.println("Resultado de la multiplicación: " + resultado);
                 break;
             case 4:
-                if (number2 != 0) {
+                try {
                     resultado = number1 / number2;
                     System.out.println("Resultado de la división: " + resultado);
-                } else {
-                    System.out.println("Error: División por cero no permitida.");
+                } catch (ArithmeticException e) {
+                    System.out.println("Error: División por cero no permitida."+e);
                 }
+                break;
         }
         scanner.close();
     }
